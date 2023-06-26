@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta
+      name="viewport"
+      content="width=320,
+         height=480,
+         initial-scale=1.0,
+         minimum-scale=1.0,
+         maximum-scale=2.0,
+         user-scalable=yes"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <meta charset="utf-8" />
+    <title>Online Picture Quiz</title>
+  </head>
+
+  <body>
+    <audio id="audio"></audio>
+    <h1>画像クイズ</h1>
+    <span
+      class="formu"
+      id="Formulaire_connexion"
+      name="Formulaire_connexion"
+      action="/"
+    >
+      <h2>名前を入力</h2>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        size="20"
+        maxlength="60"
+        placeholder="名無しさん"
+      />
+      <button name="BtSub" onclick="Startquiz()">始める！</button>
+    </span>
+
+    <script>
+      function Startquiz() {
+        var name = document.getElementById("name").value;
+        sessionStorage.setItem("name", name);
+        window.location = "game/index.html";
+      }
+      window.onload = function () {
+        no_scroll();
+      };
+      // スクロール禁止
+      function no_scroll() {
+        // PCでのスクロール禁止
+        document.addEventListener("mousewheel", scroll_control, {
+          passive: false
+        });
+        // スマホでのタッチ操作でのスクロール禁止
+        document.addEventListener("touchmove", scroll_control, {
+          passive: false
+        });
+      }
+      // スクロール禁止解除
+      function return_scroll() {
+        // PCでのスクロール禁止解除
+        document.removeEventListener("mousewheel", scroll_control, {
+          passive: false
+        });
+        // スマホでのタッチ操作でのスクロール禁止解除
+        document.removeEventListener("touchmove", scroll_control, {
+          passive: false
+        });
+      }
+
+      // スクロール関連メソッド
+      function scroll_control(event) {
+        event.preventDefault();
+      }
+    </script>
+  </body>
+</html>

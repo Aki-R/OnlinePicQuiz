@@ -1,0 +1,21 @@
+{
+  "name": "onlinepicturequiz",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "buffer": "6.0.3",
+    "express": "4.18.1",
+    "jimp": "0.16.1",
+    "opencv.js": "1.2.1",
+    "socket.io": "4.5.1"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.21"
+  },
+  "keywords": [],
+  "description": ""
+}
